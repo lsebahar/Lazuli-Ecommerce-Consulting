@@ -1,50 +1,3 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-} */
-
-/* .main{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(to right, #9c27b0, #8ecdff);
-} */
-
-/* nav{
-    width: 100%;
-    position: sticky;
-    margin: 0px;
-    z-index: 1;
-    display: flex ;
-    align-items: center;
-} */
-
-
-/* .navbar{
-    background-color: rgb(11, 9, 92);
-} */
-
-/* .logo{
-    flex-basis: 20%;
-} */
-
-/* .logo img{
-    width: 170px;
-} */
-
-/* .nav-links{
-    flex: 1;
-    text-align: right;
-} */
-
-/* .nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-} */
-
 body{
     background-image: url(images/mountain2.jpg);
     height:800px;
@@ -94,22 +47,122 @@ body{
 }
 
 
+/*--------------------------------------------------------------
+# About this Project
+--------------------------------------------------------------*/
+.counts {
+    padding: 70px 0 70px;
+  }
+  
+.count-box {
+    margin-left: 75px;
+    margin-right: 100px;
+    width: 100%;
+    position: sticky;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .counts .count-box p {
+    padding: 5px;
+    margin: 0;
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    color:black;
+    font-weight: bold;
+    background-color: black;
+    opacity: .8;
+    color: #bddbfc;
+  }
+  
+  .counts .count-box li {
+    padding: 0px;
+    margin: 5px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color:black;
 
-/* .information{
-    width: 1000px;
-    height: 1000px;
-    position: absolute;
-    top: 50%;
-    left: -10%;
-    transform: translateY(-50%);
-} */
+  }
 
-/* #circle{
-    width: 1000px;
-    height: 1000px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    background: #ccc;
-} */
+  /* *--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/ */
+section {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 140px;
+  bottom: 100%;
+  opacity: 0;
+  transition: ease-in-out 0.4s;
+  z-index: 2;
+}
+
+section.section-show {
+  top: 100px;
+  bottom: auto;
+  /* opacity: 1; */
+  padding-bottom: 45px;
+}
+
+section .container {
+  /* background: rgba(0, 0, 0, 0.9); */
+  padding: 0px;
+}
+
+@media (max-width: 768px) {
+  section {
+    top: 120px;
+  }
+  section.section-show {
+    top: 80px;
+  }
+}
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #bddbfc;
+  margin: 4px 10px;
+  
+}
+
+.section-title p {
+  margin: 0;
+  margin: -15px 0 15px 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+
+}
+
+.skills-container{
+    margin-top: 50px;
+    background-color: black;
+    opacity: .8;
+}
+
+.section-title1{
+    font-family: 'Amatic SC', cursive;
+    width: 100px;
+
+}
+  
