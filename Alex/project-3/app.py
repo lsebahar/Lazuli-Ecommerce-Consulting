@@ -1,20 +1,99 @@
-from flask import Flask, render_template, redirect, jsonify
-from flask_pymongo import PyMongo
-import json
-from bson.json_util import dumps
-from bson.objectid import ObjectId
-from flask import request
+import flask
+import pickle
+import pandas as pd
+#import 'run model' from s
 
-# Mongo Flask Connection
+# Use pickle to load in the pre-trained model
+with open(f'customer_satisfaction.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-app = Flask(__name__)
+with open(f'repeat_customer.pkl', 'rb') as f:
+    model2 = pickle.load(f)
 
+# Initialise the Flask app
+app = flask.Flask(__name__, template_folder='templates')
 
-@app.route('/')
+# Set up the main route
+@app.route('/customer-review', methods=['GET', 'POST'])
+def main():
+    if flask.request.method == 'GET':
+        # Just render the initial form, to get input
+        return(flask.render_template('main.html'))
 
-def welcome():
-    return render_template('landing-page.html')
+    if flask.request.method == 'POST':
+        # Extract the input
+        product_description_lenght = flask.request.form['product_description_lenght']
+        product_photos_qty = flask.request.form['product_photos_qty']
+        Is_It_Late = flask.request.form['Is_It_Late']
+        Payment_Type = flask.request.form['Payment_Type']
+        Total_Order_Value = flask.request.form['Total_Order_Value']
 
-# Boiler plate 
-if __name__ == "__main__":
+        # Make DataFrame for model
+        input_variables = pd.DataFrame([[product_description_lenght, product_photos_qty, Is_It_Late, Payment_Type,
+                                        Total_Order_Value]],
+                                       columns=['product_description_lenght', 'product_photos_qty', 'Is_It_Late',
+                                       'Payment_Type', 'Total_Order_Value'],
+                                       dtype=float,
+                                       index=['input'])
+
+        # Get the model's prediction
+        prediction = model.predict(input_variables)[0]
+
+        # Convert Output to Text
+        if prediction > 1:
+            prediction = "Positive"
+        else:
+            prediction = "Negative"
+
+        # Render the form again, but add in the prediction and remind user
+        # of the values they input before
+        return flask.render_template('main.html',
+                                     original_input={'product_description_lenght':product_description_lenght,
+                                                     'product_photos_qty':product_photos_qty,
+                                                     'Is_It_Late':Is_It_Late,
+                                                     'Payment_Type':Payment_Type,
+                                                     'Total_Order_Value':Total_Order_Value},
+                                     result=prediction,
+                                     )
+
+# Set up the main route
+@app.route('/repeat-customer', methods=['GET', 'POST'])
+def repeat():
+    if flask.request.method == 'GET':
+        # Just render the initial form, to get input
+        return(flask.render_template('repeat-customer.html'))
+
+    if flask.request.method == 'POST':
+        # Extract the input
+        days_to_delivery = flask.request.form['days_to_delivery']
+        late = flask.request.form['late']
+        review_score = flask.request.form['review_score']
+
+        # Make DataFrame for model
+        input_variables2 = pd.DataFrame([[days_to_delivery, late, review_score]],
+                                       columns=['days_to_delivery', 'late', 'review_score'],
+                                       dtype=float,
+                                       index=['input'])
+
+        # Get the model's prediction
+        prediction2 = model2.predict(input_variables2)[0]
+
+        # Convert Output to Text
+        if prediction2 > 1:
+            prediction2 = "Repeat Customer"
+        else:
+            prediction2 = "Will Not Purchase Again"
+
+        # Render the form again, but add in the prediction and remind user
+        # of the values they input before
+        return flask.render_template('repeat-customer.html',
+                                     original_input={'days_to_delivery':days_to_delivery,
+                                                     'late':late,
+                                                     'review_score':review_score},
+                                     result2=prediction2,
+                                     )
+
+#['days_to_delivery','late','review_score']
+
+if __name__ == '__main__':
     app.run(debug=True)
