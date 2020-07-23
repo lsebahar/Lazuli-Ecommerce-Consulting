@@ -185,8 +185,12 @@
           <div class="codebox">
             <pre>
               <code>
-                target = df_train["Positive_or_Negative"]
-                target_names = ["negative", "positive"]
+                #1=Credit Card, #5=Voucher, #0=Boleto, #2=Debit Card
+                lb_make = LabelEncoder()
+                df_train["Payment_Type"] = lb_make.fit_transform(df_train["payment_type"])
+                df_train["Customer_City"] = lb_make.fit_transform(df_train["customer_city"])
+                df_train["Customer_State"] = lb_make.fit_transform(df_train["customer_state"])
+                df_train["Product_Category_Name"] = lb_make.fit_transform(df_train["product_category_name_english"])
               </code>
             </pre>
           </div>
