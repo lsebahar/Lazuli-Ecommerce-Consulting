@@ -86,7 +86,7 @@
 <div class="title">
   <div class="row justify-content-md-center">
       <div class ="col col-lg-auto">
-          <h1><b>Predicting Repeat Customers with Logsitic Regression</b></h1>
+          <h1><b>Predicting Repeat Customers with Logistic Regression</b></h1>
       </div>
   </div>
 </div>
@@ -95,7 +95,7 @@
 <div class="container">
 <div class="row justify-content-md-center">
   <div class ="col col-lg-auto"></div>
-      <img src="images/repeat-cust.jpeg" class="img-fluid" alt="machine learning">
+      <img src="static/styles/images/repeat-cust.jpeg" class="img-fluid" alt="machine learning">
   </div>
 </div>
 </div>
@@ -345,32 +345,31 @@
             def repeat():
               if flask.request.method == 'GET':
               
-              # Just render the initial form, to get input
-              return(flask.render_template('repeat-customer.html'))
-
-              if flask.request.method == 'POST':
+            # Just render the initial form, to get input
+            return(flask.render_template('repeat-customer.html'))
+            if flask.request.method == 'POST':
               
-              # Extract the input
-              days_to_delivery = flask.request.form['days_to_delivery']
-              late = flask.request.form['late']
-              review_score = flask.request.form['review_score']
+            # Extract the input
+            days_to_delivery = flask.request.form['days_to_delivery']
+            late = flask.request.form['late']
+            review_score = flask.request.form['review_score']
 
-              # Make DataFrame for model
-              input_variables2 = pd.DataFrame([[days_to_delivery, late, review_score]],
-                                       columns=['days_to_delivery', 'late', 'review_score'],
-                                       dtype=float,
-                                       index=['input'])
+            # Make DataFrame for model
+            input_variables2 = pd.DataFrame([[days_to_delivery, late, review_score]],
+                                columns=['days_to_delivery', 'late', 'review_score'],
+                                dtype=float,
+                                index=['input'])
 
-              # Get the model's prediction
+            # Get the model's prediction
               prediction2 = model2.predict(input_variables2)[0]
 
-              # Convert Output to Text
+            # Convert Output to Text
               if prediction2 > 1:
                 prediction2 = "Repeat Customer"
               else:
                 prediction2 = "Will Not Purchase Again"
 
-              # Render the form again, but add in the prediction and remind user of the values they input before
+            # Render the form again, but add in the prediction and remind user of the values they input before
               return flask.render_template('repeat-customer.html',
                                      original_input={'days_to_delivery':days_to_delivery,
                                                      'late':late,
