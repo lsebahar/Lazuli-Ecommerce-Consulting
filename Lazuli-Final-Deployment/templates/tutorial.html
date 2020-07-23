@@ -185,8 +185,12 @@
           <div class="codebox">
             <pre>
               <code>
-                target = df_train["Positive_or_Negative"]
-                target_names = ["negative", "positive"]
+                #1=Credit Card, #5=Voucher, #0=Boleto, #2=Debit Card
+                lb_make = LabelEncoder()
+                df_train["Payment_Type"] = lb_make.fit_transform(df_train["payment_type"])
+                df_train["Customer_City"] = lb_make.fit_transform(df_train["customer_city"])
+                df_train["Customer_State"] = lb_make.fit_transform(df_train["customer_state"])
+                df_train["Product_Category_Name"] = lb_make.fit_transform(df_train["product_category_name_english"])
               </code>
             </pre>
           </div>
@@ -223,11 +227,27 @@
         <div class="codebox">
           <pre>
             <code>
+              <b>from</b> sklearn.ensemble <b>import</b> RandomForestClassifier
+              target = df_train["Positive_or_Negative"]
+              target_names = ["negative", "positive"]
               X_train, X_test, y_train, y_test = train_test_split(data, target, random_state=42)
               rf2 = RandomForestClassifier(n_estimators=200)
               rf2 = rf2.fit(X_train, y_train)
               rf2.score(X_test, y_test)
               sorted(zip(rf2.feature_importances_, feature_names), reverse=True)
+            </code>
+          </pre>
+        </div>
+        <br>
+        <p>[Out]:</p>
+        <div class="codebox">
+          <pre>
+            <code>
+              [(0.5235107273961033, 'Total_Order_Value'),
+              (0.3430993443616737, 'product_description_lenght'),
+              (0.09531997316577735, 'Is_It_Late'),
+              (0.022926017902676243, 'product_photos_qty'),
+              (0.015143937173769306, 'Payment_Type')]
             </code>
           </pre>
         </div>
