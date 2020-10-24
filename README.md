@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">
-    <img src="static/Lazuli.png" alt="Logo" width="300" height="300">
+    <img src="static/machine_learning.jpeg" alt="Logo" width="1000" height="300">
   </a>
 
   <h3 align="center">Lazuli - Leverage Your Data</h3>
