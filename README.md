@@ -67,7 +67,9 @@
 
 Lazuli offers fully managed services that are designed to accelerate the growth of your ecommerce business. We rapidly develop & deploy solutions using the latest in machine learning to tackle your biggest business pain points.
 
-This project takes on data from the Brazilian Ecommerce dataset on Kaggle (link below). With this data we sought to develop 3 different solutions: repeat customer predictor, customer satisfaction predictor, and a purchase recommender. I would explain more here, but it's all available on the site! Take a look through the link below: 
+This project takes on data from the Brazilian Ecommerce dataset on Kaggle (link below). With this data we sought to develop 3 different solutions: repeat customer predictor, customer satisfaction predictor, and a purchase recommender. 
+
+I would normally explain more here, but it's all available on the site! Take a look through the link below: 
 
 Site Link: http://lazuli-ecom-machine-learning.herokuapp.com/
 
