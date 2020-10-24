@@ -77,8 +77,12 @@ Site Link: http://lazuli-ecom-machine-learning.herokuapp.com/
 * Jupyter Notebook
 * Python
 * Pandas
-* JSON
-* SQL
+* Sklearn
+* Seaborn
+* HTML
+* CSS
+* JavaScript
+* Heroku
 
 
 
