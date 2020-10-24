@@ -27,7 +27,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">
+  <a href="https://github.com/lsebahar/Lazuli-Ecommerce-Consulting">
     <img src="static/machine_learning.jpeg" alt="Logo" width="1000" height="300">
   </a>
 
@@ -36,14 +36,14 @@
   <p align="center">
     Consulting based on the best practices in data analytics
     <br />
-    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lsebahar/Lazuli-Ecommerce-Consulting"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL">View Demo</a>
+    <a href="https://github.com/lsebahar/Lazuli-Ecommerce-Consulting">View Demo</a>
     ·
-    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL/issues">Report Bug</a>
+    <a href="https://github.com/lsebahar/Lazuli-Ecommerce-Consulting/issues">Report Bug</a>
     ·
-    <a href="https://github.com/lsebahar/Netflix-OMDb-ETL/issues">Request Feature</a>
+    <a href="https://github.com/lsebahar/Lazuli-Ecommerce-Consulting/issues">Request Feature</a>
   </p>
 </p>
 
@@ -54,10 +54,6 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [Contact](#contact)
@@ -69,9 +65,11 @@
 ## About The Project
 
 
-Netflix binges have become, for better or worse, part of American culture. With movies chock-full of data, we got an idea--are these unintentional all-day viewing parties-of-one just as random as what catches the viewer's attention? What kind of interesting trends do people have in their viewing history? 
+Lazuli offers fully managed services that are designed to accelerate the growth of your ecommerce business. We rapidly develop & deploy solutions using the latest in machine learning to tackle your biggest business pain points.
 
-We set out to create an ETL process to empower a user to query stats and discern trends. The general process is relatively simple. Download viewing history data from Netflix. Clean that data, then use the titles to pull data related to cast, genre, etc from the Open Movie Database. Load all of this data to PostgreSQL, then presto: you have the ability to query from a relational database. 
+This project takes on data from the Brazilian Ecommerce dataset on Kaggle (link below). With this data we sought to develop 3 different solutions: repeat customer predictor, customer satisfaction predictor, and a purchase recommender. I would explain more here, but it's all available on the site! Take a look through the link below: 
+
+Site Link: http://lazuli-ecom-machine-learning.herokuapp.com/
 
 
 ### Built With
@@ -84,57 +82,12 @@ We set out to create an ETL process to empower a user to query stats and discern
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-1) Download your Netflix viewing history as CSV files
-
-2) Get an API key from OMDb
-
-3) Install PostgreSQL
-
-4) Install Jupyter Notebook
-
-
-### Installation
-
-1) Clone the repo
-```sh
-git clone https://github.com/lsebahar/Netflix-OMDb-ETL.git
-```
-
-
-2) Add to the "Code" folder a config.py file which contains the variable api_key (for your OMDb key) as well as the connection string to your postgreSQL application. 
-<img src="Images/config_image.png" alt="Logo" width="200" height="100">
-
-```sh
-api_key = 'apikeyhere'
-connection_string = 'postgres:postgres@localhost:####/DBname'
-```
-
-
-3) Add your CSV files to the "Netflix_Data" folder, and align with the code in "Code/ETL-Script.ipynb" (e.g. "User1.csv")
-
-4) Run the Jupyter Notebook cells 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Now you can query using SQL! 
-
-<img src="Images/postgres_results.png" alt="Logo" width="800" height="600">
-
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/lsebahar/Netflix-OMDb-ETL/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/lsebahar/Lazuli-Ecommerce-Consulting/issues) for a list of proposed features (and known issues).
 
 
 
@@ -156,7 +109,7 @@ Contributions are what make the open source community such an amazing place to b
 
 Levi Sebahar - leviseb@gmail.com
 
-Project Link: [https://github.com/lsebahar/Netflix-OMDb-ETL](https://github.com/lsebahar/Netflix-OMDb-ETL)
+Project Link: [https://github.com/lsebahar/Lazuli-Ecommerce-Consulting](https://github.com/lsebahar/Lazuli-Ecommerce-Consulting)
 
 
 
@@ -166,7 +119,11 @@ Project Link: [https://github.com/lsebahar/Netflix-OMDb-ETL](https://github.com/
 * The Data Science & Visualization Bootcamp
 * UCSD Extension
 * Alex Perry (contributor; Github: alexrayperry)
+* Thomas Wheeler (contributor; Github: Tbwheeler94)
+* Tran Nguyen (contributor; Github: supericecooker)
+* Trevor Sauerbrey (contributor; Github: trevsauer)
 * Github user othneildrew (readme template)
+* Kaggle Brazilian Ecommerce Dataset (https://www.kaggle.com/olistbr/brazilian-ecommerce)
 
 
 
